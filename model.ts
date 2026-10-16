@@ -38,27 +38,21 @@ export function filterByStatus(
   return tasks.filter((task) => task.status === status);
 }
 
-// Original operation: advances a task to its next status.
+// Extra operation: advances a task to its next status.
 export function advanceTask(tasks: Task[], id: number): Task[] {
   return tasks.map((task) => {
     if (task.id !== id) {
       return task;
     }
 
-    const nextStatus: TaskStatus =
-      task.status === "todo"
-        ? "in-progress"
-        : task.status === "in-progress"
-          ? "done"
-          : "done";
+    let nextStatus: TaskStatus;
+
+    if (task.status === "todo") {
+      nextStatus = "in-progress";
+    } else {
+      nextStatus = "done";
+    }
 
     return { ...task, status: nextStatus };
   });
 }
-// Uncomment one at a time to test type safety.
-
-// const badTask: Task = { id: 1, title: "Test" };
-// const badId: Task = { id: "3", title: "Test", status: "todo" };
-
-// const tasks: Task[] = [];
- filterByStatus(tasks, "finished");
