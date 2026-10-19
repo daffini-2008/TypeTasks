@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskNest | My Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <main class="container">
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>TaskNest<span>.</span></h1>
+        <p class="subtitle">Small steps. Real progress.</p>
+
+        <form id="task-form">
+            <input
+                id="title"
+                type="text"
+                placeholder="What do you need to do?"
+                required
+            >
+            <button type="submit">+ Add task</button>
+        </form>
+
+        <nav class="filters" aria-label="Filter tasks">
+            <button type="button" data-filter="all" class="active">All</button>
+            <button type="button" data-filter="todo">To do</button>
+            <button type="button" data-filter="in-progress">In progress</button>
+            <button type="button" data-filter="done">Done</button>
+        </nav>
+
+        <ul id="task-list"></ul>
+        <p id="empty-message">No tasks here yet. Add your first one!</p>
+        <p class="footer">One task at a time ✦</p>
+    </main>
+</body>
+</html>
